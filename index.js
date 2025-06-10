@@ -27,4 +27,30 @@ const posts = [
         likes: 152
     }
 ]
+const postSections = document.getElementById("post-sections")
 
+for(let i=0;i<posts.length;i++){
+    let post = posts[i]
+    postSections.innerHTML += 
+    `
+    <section class="post">
+        <div class="post-user padding">
+            <img class="post-user-image" src=${post.avatar} alt="profile picture of vangogh">
+            <div class="post-user-info">
+                <p class="post-user-name bold">${post.name}</p>
+                <p class="post-user-location small-text">${post.location}</p>
+            </div>
+        </div>
+        <img class="post-image" src=${post.post} alt="picture of vangogh">
+        <div class="post-interactions padding">
+            <img src="images/icon-heart.png" alt="heart icon">
+            <img src="images/icon-comment.png" alt="comment icon">
+            <img src="images/icon-dm.png" alt="dm icon">
+        </div>
+        <div class="padding">
+            <p class="like bold">${post.likes} likes</p>
+            <p class="comment"><span class="bold">${post.username}</span> ${post.comment} lol</p>
+        </div>
+    </section>
+    `
+}
